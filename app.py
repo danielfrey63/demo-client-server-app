@@ -14,12 +14,6 @@ class Vote(db.Model):
     answer = db.Column(db.String(10), nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-with app.app_context():
-    db.create_all()
-    # Lösche alle existierenden Einträge beim Start
-    Vote.query.delete()
-    db.session.commit()
-
 def generate_qr_code(url):
     qr = qrcode.QRCode(
         version=1,
@@ -67,4 +61,13 @@ def get_results():
     })
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+        # Lösche alle existierenden Einträge beim Start
+        Vote.query.delete()
+        db.session.commit()
     app.run(debug=True)
+else:
+    # Für Vercel: Datenbank initialisieren wenn die App als Modul importiert wird
+    with app.app_context():
+        db.create_all()
