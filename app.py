@@ -1,18 +1,13 @@
 from flask import Flask, render_template, request, jsonify, url_for
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import qrcode
 import io
 import base64
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///votes.db'
-db = SQLAlchemy(app)
 
-class Vote(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    answer = db.Column(db.String(10), nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+# In-memory storage for votes
+votes = {'yes': 0, 'no': 0}
 
 def generate_qr_code(url):
     qr = qrcode.QRCode(
@@ -46,28 +41,17 @@ def results():
 @app.route('/submit_vote', methods=['POST'])
 def submit_vote():
     answer = request.json.get('answer')
-    new_vote = Vote(answer=answer)
-    db.session.add(new_vote)
-    db.session.commit()
-    return jsonify({'status': 'success'})
+    if answer in ['yes', 'no']:
+        votes[answer] += 1
+        return jsonify({'status': 'success'})
+    return jsonify({'status': 'error', 'message': 'Invalid vote'}), 400
 
 @app.route('/get_results')
 def get_results():
-    yes_votes = Vote.query.filter_by(answer='yes').count()
-    no_votes = Vote.query.filter_by(answer='no').count()
     return jsonify({
-        'yes': yes_votes,
-        'no': no_votes
+        'yes': votes['yes'],
+        'no': votes['no']
     })
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-        # Lösche alle existierenden Einträge beim Start
-        Vote.query.delete()
-        db.session.commit()
     app.run(debug=True)
-else:
-    # Für Vercel: Datenbank initialisieren wenn die App als Modul importiert wird
-    with app.app_context():
-        db.create_all()
