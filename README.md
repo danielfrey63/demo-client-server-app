@@ -62,15 +62,14 @@ Ich möchte für beide Screens (Survey und Results) ein wirklich modernes, anspr
 Mach nur Änderungen am UI. Berücksichtige dabei:
 
 - Moderne Typographie mit der Inter Font Family
+- Zentriertes Layout
 - Dunkles Theme mit modernen Farbverläufen
-- Subtile Animationen und Hover-Effekte für Buttons und Container
+- Subtile Animationen und Hover-Effekte für Buttons und Container, jedoch nicht für das Kuchendiagramm
 - Responsives Design für mobile Geräte
 - Verbesserte Lesbarkeit und visuelle Hierarchie
 - Moderne Komponenten-Stile (Buttons, Container)
-- Pie Chart (kein Doughnut/Ring Chart):
-  - Keine Animationen im Chart
-  - Klare, zum Dark Theme passende Farben
-  - Prozentangaben direkt im Chart
+- Konsistente Farben und Strukturen
+- Weiche Konturen und Linien
 ```
 
 ### 3. Änderungen einchecken und synchronisieren
