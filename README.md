@@ -37,3 +37,46 @@ Die Anwendung ist dann unter `http://localhost:5000` erreichbar:
 5. Klicke auf "Deploy"
 
 Die Anwendung wird automatisch gebaut und deployed. Vercel stellt eine URL bereit, unter der die Anwendung erreichbar ist.
+
+## Demo Vorbereitung
+
+### 1. Main Branch auf v1.0.0 zurücksetzen
+
+```bash
+# Wechsle zum main Branch
+git checkout main
+
+# Setze den Branch hart auf v1.0.0 zurück
+git reset --hard v1.0.0
+
+# Pushe die Änderungen zum Remote Repository (force push erforderlich)
+git push -f origin main
+```
+
+### 2. UI Modernisierung mit KI
+
+Für die UI-Modernisierung kann folgender Prompt verwendet werden:
+
+```text
+Ich möchte für beide Screens (Survey und Results) ein wirklich modernes, ansprechendes UI haben. 
+Mach nur Änderungen am UI. Berücksichtige dabei:
+
+- Moderne Typographie mit der Inter Font Family
+- Dunkles Theme mit modernen Farbverläufen
+- Subtile Animationen und Hover-Effekte
+- Responsives Design für mobile Geräte
+- Verbesserte Lesbarkeit und visuelle Hierarchie
+- Moderne Komponenten-Stile (Buttons, Container, Charts)
+```
+
+### 3. Änderungen einchecken und synchronisieren
+
+```bash
+# Änderungen zum Staging hinzufügen
+git add .
+
+# Commit mit aussagekräftiger Nachricht erstellen
+git commit -m "Modern UI improvements for survey and results pages"
+
+# Änderungen zum Remote Repository pushen
+git push origin main
