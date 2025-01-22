@@ -63,10 +63,14 @@ Mach nur Änderungen am UI. Berücksichtige dabei:
 
 - Moderne Typographie mit der Inter Font Family
 - Dunkles Theme mit modernen Farbverläufen
-- Subtile Animationen und Hover-Effekte
+- Subtile Animationen und Hover-Effekte für Buttons und Container
 - Responsives Design für mobile Geräte
 - Verbesserte Lesbarkeit und visuelle Hierarchie
-- Moderne Komponenten-Stile (Buttons, Container, Charts)
+- Moderne Komponenten-Stile (Buttons, Container)
+- Pie Chart (kein Doughnut/Ring Chart):
+  - Keine Animationen im Chart
+  - Klare, zum Dark Theme passende Farben
+  - Prozentangaben direkt im Chart
 ```
 
 ### 3. Änderungen einchecken und synchronisieren
