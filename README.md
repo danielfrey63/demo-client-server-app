@@ -58,18 +58,7 @@ git push -f origin main
 Für die UI-Modernisierung kann folgender Prompt verwendet werden:
 
 ```text
-Ich möchte für beide Screens (Survey und Results) ein wirklich modernes, ansprechendes UI haben. 
-Mach nur Änderungen am UI. Berücksichtige dabei:
-
-- Moderne Typographie mit der Inter Font Family
-- Zentriertes Layout
-- Dunkles Theme mit modernen Farbverläufen
-- Subtile Animationen und Hover-Effekte für Buttons und Container, jedoch nicht für das Kuchendiagramm
-- Responsives Design für mobile Geräte
-- Verbesserte Lesbarkeit und visuelle Hierarchie
-- Moderne Komponenten-Stile (Buttons, Container)
-- Konsistente Farben und Strukturen
-- Weiche Konturen und Linien
+Entwerfe ein modernes, ansprechendes UI für beide Screens (Survey und Results) mit folgenden Anpassungen: Verwende die Inter Font Family für eine zeitgemäße Typografie, zentriere das Layout und implementiere ein dunkles Theme mit modernen Farbverläufen. Integriere subtile Animationen und Hover-Effekte für Buttons und Container (ohne das Kuchendiagramm zu beeinflussen). Achte auf ein vollständig responsives Design für mobile Geräte, verbessere die Lesbarkeit und visuelle Hierarchie, gestalte Buttons und Container mit modernen Stilen, halte Farben und Strukturen konsistent und verwende weiche Konturen und Linien für ein harmonisches Gesamtbild. Stell sicher, dass QR-Code und Umfrage-Ergebnisse nebeneinander angezeigt werden, ausser bei Mobile-Geräten.
 ```
 
 ### 3. Änderungen einchecken und synchronisieren
